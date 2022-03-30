@@ -1,0 +1,27 @@
+{
+  "name": "blog-api",
+  "version": "1.0.0",
+  "description": "A blog API that returns a list of blog posts based on a given tag",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "Node.js",
+    "API",
+    "Blog",
+    "REST",
+    "Express"
+  ],
+  "author": "Hayagreev Varadarajan",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.2",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.9",
+    "nodemon": "^2.0.15"
+  }
+}
