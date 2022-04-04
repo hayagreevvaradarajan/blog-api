@@ -1,7 +1,7 @@
-const sendRequest = require("../controllers/request.js");
-const handleTags = require("../controllers/handleTags.js");
-const handleDirection = require("../controllers/handleDirection.js");
-const handleSortBy = require("../controllers/handleSortBy.js");
+const sendRequest = require("../../controllers/request.js");
+const handleTags = require("../../controllers/handleTags.js");
+const handleDirection = require("../../controllers/handleDirection.js");
+const handleSortBy = require("../../controllers/handleSortBy.js");
 
 const posts = async (req, res) => {
     const tags = handleTags(req.query.tags);
