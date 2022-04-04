@@ -4,4 +4,4 @@ const ping = (req, res) => {
     });
 };
 
-module.exports = ping
+module.exports = ping;
