@@ -32,7 +32,7 @@ Sample response:
          }
 ```
 
-GET /api/posts?tags=<tags-separated-by-commas>&sortBy=<parameter-to-sort-results-by>&direction=<direction-to-sort-results-by>:
+GET /api/posts?tags=(tags-separated-by-commas)&sortBy=(parameter-to-sort-results-by)&direction=(direction-to-sort-results-by):
 ```
 Returns Blog data as JSON.
 Status codes: 200, 400, 500
