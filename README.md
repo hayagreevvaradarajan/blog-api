@@ -31,3 +31,57 @@ Sample response:
             "success": "true"
          }
 ```
+
+GET /api/posts?tags=<tags-separated-by-commas>&sortBy=<parameter-to-sort-results-by>&direction=<direction-to-sort-results-by>:
+```
+Returns Blog data as JSON.
+Status codes: 200, 400, 500
+Accepted request headers(These headers are optional. The API will work even if headers are not specified): content-type: application/json
+Response header: content-type: application/json
+Required Request payload: None
+Query parameters: 
+    1. tags - required
+    2. sortBy - optional
+    3. direction - optional
+Accepted values for sortBy: id, reads, likes, popularity
+Default value for sortBy: id
+Accepted values for direction: desc, asc
+Default value for direction: asc
+Sample response:
+    200: {
+            "posts": [
+                {
+                    "author": "Rylee Paul",
+                    "authorId": 9,
+                    "id": 1,
+                    "likes": 960,
+                    "popularity": 0.13,
+                    "reads": 50361,
+                    "tags": [
+                        "tech",
+                        "health"
+                    ]
+                },
+                {
+                    "author": "Zackery Turner",
+                    "authorId": 12,
+                    "id": 2,
+                    "likes": 469,
+                    "popularity": 0.68,
+                    "reads": 90406,
+                    "tags": [
+                        "startups",
+                        "tech",
+                        "history"
+                    ]
+                }
+            ]
+         },
+    400: {
+            "error": "tags parameter cannot be empty"
+         },
+    500: {
+            "error": "Internal server error"
+         }
+    
+```
