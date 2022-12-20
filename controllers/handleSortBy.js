@@ -1,9 +1,9 @@
 const lodash = require("lodash");
 
 const handleSortBy = (property) => {
-    if(!property){
+    if(!property) {
         return "id";
-    }else{
+    } else {
         const lowerProperty = lodash.lowerCase(property);
         const acceptableProperties = ["id", "reads", "likes", "popularity"];
         if(acceptableProperties.includes(lowerProperty)){
