@@ -16,7 +16,8 @@ This RESTful API was built as a solution for the Hatchways Backend assessment. I
     ```
 This API supports two endpoints:
  ```
-GET /api/ping and GET /api/posts?tags=<tags-separated-by-commas>&sortBy=<parameter-to-sort-results-by>&direction=<direction-to-sort-results-by>
+GET /api/ping and 
+GET /api/posts?tags=<tags-separated-by-commas>&sortBy=<parameter-to-sort-results-by>&direction=<direction-to-sort-results-by>
 ```
 GET /api/ping:
 ```
