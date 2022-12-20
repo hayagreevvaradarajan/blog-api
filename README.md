@@ -32,7 +32,7 @@ Sample response:
          }
 ```
 
-GET /api/posts?tags=(tags-separated-by-commas)&sortBy=(parameter-to-sort-results-by)&direction=(direction-to-sort-results-by):
+GET /api/posts?tags=(tags-separated-by-commas)&sortBy=(parameter-to-sort-results-by)&direction=(direction-to-sort-results-by)&limit=(number-of-posts):
 ```
 Returns Blog data as JSON.
 Status codes: 200, 400, 500
@@ -43,10 +43,12 @@ Query parameters:
     1. tags - required
     2. sortBy - optional
     3. direction - optional
+    4. limit - required
 Accepted values for sortBy: id, reads, likes, popularity
 Default value for sortBy: id
 Accepted values for direction: desc, asc
 Default value for direction: asc
+Accepted values for limit: Any positive integer greater than 0
 Sample response:
     200: {
             "posts": [
@@ -78,7 +80,7 @@ Sample response:
             ]
          },
     400: {
-            "error": "tags parameter cannot be empty"
+            "error": "tags parameter is required"
          },
     500: {
             "error": "Internal server error"
