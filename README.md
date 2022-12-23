@@ -1,5 +1,5 @@
 # blog-api
-This RESTful API was built as a solution for the Hatchways Backend assessment. It is built using Node.js and Express that will make an external request to fetch Blog data from an Hatchways API. It will return an array of blog posts sorted by ID ascending by default.
+This RESTful API was built as a solution for the Hatchways Backend assessment. It is built using Node.js and Express that will make an external request to fetch Blog data from an Hatchways API. If the blog data for a tag is there in the cache, it will fetch it from the cache. If not, it will make an API call to fetch the data and then cache the response. It will return an array of blog posts sorted by ID ascending by default.
 # Setup and run instructions:
 
 1. Install all dependencies using the following command:
@@ -14,6 +14,15 @@ This RESTful API was built as a solution for the Hatchways Backend assessment. I
     ```
     http://127.0.0.1:3000
     ```
+3. Run the redis server using the following command:
+    ```
+    sudo service redis-server start
+    ```
+    This will start a server with the url
+    ```
+    127.0.0.1:6379
+    ```
+    If not, please update line 5 in controllers/cacheAPIData.js and line 6 in controllers/retreiveCacheData.js to reflect the url on which your redis server is running.
 This API supports two endpoints:
  ```
 GET /api/ping and 
