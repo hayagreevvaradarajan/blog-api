@@ -8,6 +8,7 @@ const cacheAPIData = async (tag, response) => {
     });
     await client.connect();
     await client.set(tag, JSON.stringify(response));
+    client.expire(tag, 300);
 };
 
 module.exports = cacheAPIData;
