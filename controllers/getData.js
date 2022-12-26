@@ -3,21 +3,28 @@ const sortByProperty = require("./sort.js");
 const cacheAPIData = require("./cacheAPIData.js");
 const retreiveCacheData = require("./retreiveCacheData.js");
 
-const axiosRequest = async (tags, sortBy, direction) => {
+const getData = async (tags, sortBy, direction, noCache) => {
     const postsObject = {};
     const postsArray = [];
     const unCachedTags = [];
-    for (let i=0; i<tags.length; i++) {
-        const tag = tags[i];
-        const cachedBlog = await retreiveCacheData(tag);
-        if(!cachedBlog){
+    if(noCache === false){
+        for (let i=0; i<tags.length; i++) {
+            const tag = tags[i];
+            const cachedBlog = await retreiveCacheData(tag);
+            if(!cachedBlog){
+                unCachedTags.push(tag);
+                continue;
+            }
+            const cachedBlogJson = JSON.parse(cachedBlog).posts;
+            for(let i=0; i<cachedBlogJson.length; i++){
+                postsObject[cachedBlogJson[i].id] = cachedBlogJson[i];
+            }
+        }
+    }
+    if(noCache === true){
+        await tags.forEach((tag) => {
             unCachedTags.push(tag);
-            continue;
-        }
-        const cachedBlogJson = JSON.parse(cachedBlog).posts;
-        for(let i=0; i<cachedBlogJson.length; i++){
-            postsObject[cachedBlogJson[i].id] = cachedBlogJson[i];
-        }
+        });
     }
     if(unCachedTags.length > 0){
         const urls = unCachedTags.map((tag) => {
@@ -41,4 +48,4 @@ const axiosRequest = async (tags, sortBy, direction) => {
     return sortedPosts;
 };
 
-module.exports = axiosRequest;
+module.exports = getData;
