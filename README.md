@@ -1,5 +1,5 @@
 # blog-api
-This RESTful API was built as a solution for the Hatchways Backend assessment. It is built using Node.js and Express that will make an external request to fetch Blog data from an Hatchways API. If the blog data for a tag is there in the cache, it will fetch it from the cache. If not, it will make an API call to fetch the data and then cache the response. It will return an array of blog posts sorted by ID ascending by default.
+This RESTful API was built as a solution for the Hatchways Backend assessment. It is built using Node.js and Express that will make an external request to fetch Blog data from an Hatchways API. If the blog data for a tag is there in the cache, it will fetch it from the cache. If not, it will make an API call to fetch the data and then cache the response for 5 minutes. It will return an array of blog posts sorted by ID ascending by default.
 # Setup and run instructions:
 
 1. Install all dependencies using the following command:
