@@ -1,4 +1,4 @@
-const sendRequest = require("../../controllers/request.js");
+const getData = require("../../controllers/getData.js");
 const handleTags = require("../../controllers/handleTags.js");
 const handleDirection = require("../../controllers/handleDirection.js");
 const handleSortBy = require("../../controllers/handleSortBy.js");
@@ -17,14 +17,14 @@ const posts = async (req, res) => {
     console.log(limit);
     console.log(noCache);
     if(tags && sortBy !== "invalid" && direction !== "invalid" && limit !== null && limit !== "invalid" && noCache !== "invalid"){
-        const response = await sendRequest(tags, sortBy, direction, noCache);
+        const data = await getData(tags, sortBy, direction, noCache);
         try{
             res.status(200).json({
-                "posts": response.slice(0,limit)
+                "posts": data.slice(0,limit)
             });
         } catch {
             res.status(200).json({
-                "posts": response
+                "posts": data
             });
         }
     } else{

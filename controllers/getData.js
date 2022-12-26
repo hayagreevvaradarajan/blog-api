@@ -3,7 +3,7 @@ const sortByProperty = require("./sort.js");
 const cacheAPIData = require("./cacheAPIData.js");
 const retreiveCacheData = require("./retreiveCacheData.js");
 
-const axiosRequest = async (tags, sortBy, direction, noCache) => {
+const getData = async (tags, sortBy, direction, noCache) => {
     const postsObject = {};
     const postsArray = [];
     const unCachedTags = [];
@@ -48,4 +48,4 @@ const axiosRequest = async (tags, sortBy, direction, noCache) => {
     return sortedPosts;
 };
 
-module.exports = axiosRequest;
+module.exports = getData;
